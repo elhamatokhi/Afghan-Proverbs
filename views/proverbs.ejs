@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Here you can see the list of proverbs!</h1>
-  </body>
-</html>
+<%- include('partials/header.ejs',{title: "Proverbs"}) %>
+<div class="main-container">
+  <h1>All Proverbs</h1>
+
+    <!-- Filter section -->
+  <form method="GET" action="/proverbs" class="filter-form">
+    <label for="category">Filter by category:</label>
+    <select name="category" id="category" onchange="this.form.submit()">
+      <option value="">All</option>
+      <option value="wisdom" <%= selectedCategory === 'wisdom' ? 'selected' : '' %>>Wisdom</option>
+      <option value="patience" <%= selectedCategory === 'patience' ? 'selected' : '' %>>Patience</option>
+      <option value="cooperation" <%= selectedCategory === 'cooperation' ? 'selected' : '' %>>Cooperation</option>
+      <option value="community" <%= selectedCategory === 'community' ? 'selected' : '' %>>Community</option>
+      <option value="self-responsibility" <%= selectedCategory === 'self-responsibility' ? 'selected' : '' %>>Self Responsibility</option>
+    </select>
+  </form>
+
+  <ul>
+    <% proverbs.forEach(p => { %>
+    <li>
+      <strong> <%= p.textDari %></strong><br />
+      <b> پشتو </b><%= p.textPahto %><br />
+        <b>English Translation: </b> <%= p.translationEn %><br />
+      <b>Meaning: </b> <%= p.meaning %><br />
+      <b>Category</b> <%= p.category %>
+    </li>
+    <% }) %>
+  </ul>
+
+</div>
+
+<%- include('partials/footer') %>

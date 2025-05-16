@@ -37,3 +37,201 @@ a {
 a:hover {
   box-shadow: 0 0.6rem 1.2rem rgb(0, 0, 0, 0.3);
 }
+.main-container {
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.main-container ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.main-container li {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-left: 5px solid #4a90e2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  line-height: 1.4;
+  transition: background-color 0.3s ease;
+}
+
+.main-container li:hover {
+  background-color: #e6f0ff;
+}
+
+.main-container strong {
+  font-size: 1.1rem;
+  color: #1a237e;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.main-container li br {
+  margin-bottom: 0.3rem;
+}
+
+.main-container li span.category {
+  font-weight: 600;
+  font-style: italic;
+  color: #666;
+}
+
+/* Responsive for tablets: 2 columns */
+@media (max-width: 900px) {
+  .main-container ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.filter-form {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.filter-form label {
+  font-size: 1rem;
+}
+
+.filter-form select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-form select:hover,
+.filter-form select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* 4-column grid for proverbs */
+.proverb-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.proverb-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #fafafa;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.category {
+  font-style: italic;
+  color: #666;
+}
+header {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.navbar a {
+  text-decoration: none;;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #0056b3;
+}
+
+.navbar-text {
+  font-style: italic;
+  color: #555;
+}
+.form {
+  max-width: 31.25rem;
+  margin: 1.875rem auto;
+  padding: 1.25rem;
+  background: #f9f9f9;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0.9375rem;
+}
+
+.form input[type="text"],
+.form select {
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  font-size: 1rem;
+  border: 0.09375rem solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form input[type="text"]:focus,
+.form select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form button {
+  margin-top: 1.5625rem;
+  width: 100%;
+  font-size: 1.125rem;
+  border: 1px solid rgb(178, 159, 197);
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: azure;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.form button:hover {
+  box-shadow: 0 0.6rem 1.2rem rgb(0, 0, 0, 0.3);
+}
+
+
+/* Responsive for phones: 1 column */
+@media (max-width: 480px) {
+  .main-container ul {
+    grid-template-columns: 1fr;
+  }
+}

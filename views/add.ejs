@@ -1,0 +1,28 @@
+<%- include('partials/header',{title: "Add Proverb"}) %>
+
+<form action="/add" method="POST" class="form">
+  <label for="dari">Dari - دری‌</label>
+  <input type="text" name="textDari" id="dari" required />
+
+  <label for="pashto">Pashto - پشتو</label>
+  <input type="text" name="textPahto" id="pashto" required />
+
+  <label for="en">English</label>
+  <input type="text" name="translationEn" id="en" required />
+
+  <label for="meaning">Meaning</label>
+  <input type="text" name="meaning" id="meaning" required />
+
+  <label for="category">Category</label>
+  <select name="category" id="category">
+    <option value="wisdom">Wisdom</option>
+    <option value="cooperation">Cooperation</option>
+    <option value="patience">Patience</option>
+    <option value="caution">Caution</option>
+    <option value="humor">Humor</option>
+  </select>
+
+  <button type="submit">Submit</button>
+</form>
+
+<%- include('./partials/footer') %>
