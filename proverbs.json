@@ -1,0 +1,178 @@
+[
+  {
+    "id": "1",
+    "textDari": ".هرکه برای دیگری چاه کند، خودش در آن می‌افتد",
+    "textPahto": ".څوک چې د بل لپاره کوهي کيندي، خپل ځان پکې غورځوي",
+    "translationEn": "He who digs a well for someone else falls into it himself.",
+    "meaning": "If you plan harm for others, you may become a victim of your own plot.",
+    "categori": "wisdom"
+  },
+  {
+    "id": "2",
+    "textDari": ".قطره قطره دریا می‌شود",
+    "textPahto": ".څاڅکی، څاڅکی، سمندر کيږي",
+    "translationEn": "Drop by drop, it becomes a sea.",
+    "meaning": "Small efforts or savings accumulate into something great.",
+    "categori": "patience"
+  },
+  {
+    "id": "3",
+    "textDari": ".با یک دست صدا نمی‌آید",
+    "textPahto": ".په يوه لاس چک نه کيږي",
+    "translationEn": "One hand alone cannot make a sound.",
+    "meaning": "Teamwork or cooperation is necessary to achieve results.",
+    "categori": "cooperation"
+  },
+  {
+    "id": "4",
+    "textDari": ".همسایه بد، خانه را ویران می‌کند",
+    "textPahto": ".بد ګاونډی کور ورانوي",
+    "translationEn": "A bad neighbor destroys the home.",
+    "meaning": "The people around you can greatly impact your peace and safety.",
+    "categori": "community"
+  },
+  {
+    "id": "5",
+    "textDari": ".از ماست که بر ماست",
+    "textPahto": ".دا زموږ له لاسه دی، نه د بخت کار",
+    "translationEn": "It’s from us that it is upon us.",
+    "meaning": "Our own actions often bring us trouble.",
+    "categori": "self-responsibility"
+  },
+  {
+    "id": "6",
+    "textDari": ".هرچه بگندد نمکش می‌زنند، وای به روزی که بگندد نمک",
+    "textPahto": ".هر څه چې خوسا شي، مالګه پکې اچوي، وای د هغه ورځ چې مالګه خوسا شي",
+    "translationEn": "They salt what rots, but what if the salt itself rots?",
+    "meaning": "If the one meant to fix the problem becomes corrupt, who will help then?",
+    "categori": "wisdom"
+  },
+  {
+    "id": "7",
+    "textDari": ".جلدی کار از شیطان است",
+    "textPahto": ".بیړه د شيطان کار دی",
+    "translationEn": "Haste is from the devil.",
+    "meaning": "Rushing into things often leads to mistakes; be patient and deliberate.",
+    "categori": "wisdom"
+  },
+  {
+    "id": "8",
+    "textDari": ".دو صد گفته چون نیم کردار نیست",
+    "textPahto": ".سل خبرې د يو عمل ارزښت نه لري",
+    "translationEn": "Two hundred words are not worth half an action.",
+    "meaning": "Actions speak louder than words.",
+    "categori": "wisdom"
+  },
+  {
+    "id": "9",
+    "textDari": ".گر صبر کنی ز غوره حلوا سازی",
+    "textPahto": ".که صبر وکړې له تروه مېوې خوږه حلوه جوړیږي",
+    "translationEn": "If you are patient, sour grapes will become sweet halwa.",
+    "meaning": "With patience, even the bitter can become sweet.",
+    "categori": "wisdom"
+  },
+  {
+    "id": "10",
+    "textDari": ".هرکه طمع کرد، هلاک شد",
+    "textPahto": ".حرص والا تباه شو",
+    "translationEn": "He who is greedy will be destroyed.",
+    "meaning": "Greed leads to downfall.",
+    "categori": "wisdom"
+  },
+  {
+    "id": "11",
+    "textDari": ".یک چوب می‌شکند، اما یک دسته نمی‌شکند",
+    "textPahto": ".يو لرګی ماتيږي، خو څو لرګي يو ځای نه ماتيږي",
+    "translationEn": "One stick breaks easily, but a bundle does not.",
+    "meaning": "Unity and teamwork make you stronger.",
+    "categori": "cooperation"
+  },
+  {
+    "id": "12",
+    "textDari": ".اگر همه با هم باشند، کوه را می‌توان جابجا کرد",
+    "textPahto": ".که ټول سره يو شي، نو غر هم خوځولای شي",
+    "translationEn": "If all are united, even a mountain can be moved.",
+    "meaning": "Cooperation can overcome even the biggest challenges.",
+    "categori": "cooperation"
+  },
+  {
+    "id": "13",
+    "textDari": ".یک دست به تنهایی کاری نمی‌تواند کرد",
+    "textPahto": ".يو لاس یواځې څه نشي کولی",
+    "translationEn": "One hand alone can't do much.",
+    "meaning": "You need others to achieve meaningful goals.",
+    "categori": "cooperation"
+  },
+  {
+    "id": "14",
+    "textDari": ".دو فکر بهتر از یک فکر است",
+    "textPahto": ".دو فکر تر يو فکر غوره دی",
+    "translationEn": "Two minds are better than one.",
+    "meaning": "Collaboration brings better ideas and solutions.",
+    "categori": "cooperation"
+  },
+  {
+    "id": "15",
+    "textDari": ".همکاری قوت می‌آورد",
+    "textPahto": ".همکاري ځواک راولي",
+    "translationEn": "Cooperation brings strength.",
+    "meaning": "Working together empowers everyone involved.",
+    "categori": "cooperation"
+  },
+  {
+    "id": "16",
+    "textDari": ".صبر تلخ است، اما میوه‌اش شیرین است",
+    "textPahto": ".صبر تریو دی، خو مېوه یې خوږه ده",
+    "translationEn": "Patience is bitter, but its fruit is sweet.",
+    "meaning": "Though waiting is hard, the outcome is rewarding.",
+    "categori": "patience"
+  },
+  {
+    "id": "17",
+    "textDari": ".با صبر، سنگ نرم می‌شود",
+    "textPahto": ".په صبر سره ډبره نرمه کيږي",
+    "translationEn": "With patience, even stone becomes soft.",
+    "meaning": "Patience can overcome even the hardest obstacles.",
+    "categori": "patience"
+  },
+  {
+    "id": "18",
+    "textDari": ".آن که صبر دارد، کلید هر در دارد",
+    "textPahto": ".چا چې صبر وکړ، د هر دروازه کیلي به لاس ته راوړي",
+    "translationEn": "He who has patience holds the key to every door.",
+    "meaning": "Patience opens the way to many opportunities.",
+    "categori": "patience"
+  },
+  {
+    "id": "19",
+    "textDari": ".صبر، درد را دوا می‌کند",
+    "textPahto": ".صبر د درد دوا ده",
+    "translationEn": "Patience is the cure for pain.",
+    "meaning": "Time and patience help heal emotional wounds.",
+    "categori": "patience"
+  },
+  {
+    "id": "20",
+    "textDari": ".عجله کار شیطان است، صبر کار انسان",
+    "textPahto": ".بیړه د شیطان کار دی، صبر د انسان",
+    "translationEn": "Haste is the work of the devil, patience is the work of man.",
+    "meaning": "Wise people are patient; impulsive behavior leads to regret.",
+    "categori": "patience"
+  },
+  {
+    "id": "21",
+    "textDari": ".صبر در سختی، نشانه قدرت است",
+    "textPahto": ".په سختیو کې صبر د ځواک نښه ده",
+    "translationEn": "Patience in hardship is a sign of strength.",
+    "meaning": "True strength is shown through enduring tough times calmly.",
+    "categori": "patience"
+  },
+  {
+    "id": "22",
+    "textDari": ".صبر کن، که طلوع بعد از تاریکی است",
+    "textPahto": ".صبر وکړه، ځکه روڼا د تیارې نه وروسته راځي",
+    "translationEn": "Be patient, for dawn comes after darkness.",
+    "meaning": "Tough times will pass; stay patient and hopeful.",
+    "categori": "patience"
+  }
+]
