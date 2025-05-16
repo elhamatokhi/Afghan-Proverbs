@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  background-color: beige;
+  width: 80%;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  border: 1px solid rgb(178, 159, 197);
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: azure;
+  cursor: pointer;
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+a:hover {
+  box-shadow: 0 0.6rem 1.2rem rgb(0, 0, 0, 0.3);
+}
