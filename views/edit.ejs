@@ -1,0 +1,40 @@
+<%- include('partials/header',{title: "Edit"}) %>
+
+<form method="POST" action="/edit/<%= id %>" class="form">
+  <label for="dari">Dari - دری‌</label>
+  <input
+    type="text"
+    name="textDari"
+    id="dari"
+    required
+    value="<%= proverb.textDari%>"
+  />
+  <label for="pashto">Pashto - پشتو</label>
+  <input
+    type="text"
+    name="textPashto"
+    id=""
+    value="<%= proverb.textPashto  %>"
+  />
+
+  <label for="en">English</label>
+  <input
+    type="text"
+    name="translation"
+    id=""
+    value="<%= proverb.translation  %>"
+  />
+
+  <label for="meaning">Meaning</label>
+  <input type="text" name="meaning" id="" value="<%= proverb.meaning %>" />
+  <label for="category">Category</label>
+  <select name="category" id="category">
+    <option value="wisdom">Wisdom</option>
+    <option value="cooperation">Cooperation</option>
+    <option value="patience">Patience</option>
+    <option value="caution">Caution</option>
+    <option value="humor">Humor</option>
+  </select>
+
+  <button type="submit">Update</button>
+</form>

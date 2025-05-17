@@ -1,7 +1,11 @@
-<%- include('partials/header.ejs',{title: "Proverbs"}) %>
+<%- include('partials/header',{title: "Proverbs"}) %>
+
+<% if(proverbs.length === 0){ %>
+<div class="alert alert-info">No posts available.</div>
+<% } %>
+
 <div class="main-container">
   <h1>All Proverbs</h1>
-
     <!-- Filter section -->
   <form method="GET" action="/proverbs" class="filter-form">
     <label for="category">Filter by category:</label>
@@ -16,13 +20,19 @@
   </form>
 
   <ul>
-    <% proverbs.forEach(p => { %>
+    <% proverbs.forEach((p,index) => { %>
     <li>
       <strong> <%= p.textDari %></strong><br />
-      <b> پشتو </b><%= p.textPahto %><br />
-        <b>English Translation: </b> <%= p.translationEn %><br />
+      <b> پشتو </b><%= p.textPashto %><br />
+      <b>English Translation: </b> <%= p.translation %><br />
       <b>Meaning: </b> <%= p.meaning %><br />
       <b>Category</b> <%= p.category %>
+      <div>
+      <a href="/edit/<%= index %>">Edit</a>
+      <form action="/proverbs/<%= index %>" method="post">
+        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+      </form>
+      </div>
     </li>
     <% }) %>
   </ul>
