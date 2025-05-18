@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
   res.render('index', { proverb: null })
 })
 
-// Get all proverbs
+// Get all proverbs -  Add support for multiple categories
+
 router.get('/proverbs', (req, res) => {
   const proverbsJSON = readFileSync(
     path.join(__dirname, '../proverbs.json'),
@@ -148,7 +149,5 @@ router.get('/random', (req, res) => {
   res.render('index', { proverb: randomProverb })
 })
 // Search by keyword in any of the three language
-
-// Add support for multiple categories
 
 export default router
