@@ -148,6 +148,7 @@ router.get('/random', (req, res) => {
 
   res.render('index', { proverb: randomProverb })
 })
+
 // Search by keyword in any of the three language
 
 export default router
