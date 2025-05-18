@@ -3,8 +3,20 @@
   <h1>Welcome to the greatest collection of Afghan Proverbs! 🌎</h1>
   <div class="content">
     <a href="/proverbs"> All Proverbs</a>
-    <span>Know a new proverb? 👉</span>
-    <a href="/add">Add a new Proverb</a>
+    <% if (proverb) { %>
+    <div class="">
+      <p><%= proverb.textDari %></p>
+      <p><%= proverb.textPashto %></p>
+      <p><%= proverb.translation %></p>
+      <span>-----------------</span>
+      <p><%= proverb.category %></p>
+    </div>
+
+    <a href="/random">Pick another random proverb</a>
+    <% } else { %>
+    <span>No proverb yet. 👉</span>
+    <a href="/random">Pick a random proverb</a>
+    <% } %>
   </div>
 </div>
 

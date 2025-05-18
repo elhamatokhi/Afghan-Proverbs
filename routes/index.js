@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename)
 let data
 
 router.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', { proverb: null })
 })
 
 // Get all proverbs
@@ -138,8 +138,15 @@ router.post('/proverbs/:id', (req, res) => {
   )
   console.log(`A proverb was just deleted. 😒`)
 })
-// Endpoint Random Proverb
 
+// Endpoint Random Proverb
+router.get('/random', (req, res) => {
+  const proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
+  const randomIndex = Math.floor(Math.random() * proverbs.length)
+  const randomProverb = proverbs[randomIndex]
+
+  res.render('index', { proverb: randomProverb })
+})
 // Search by keyword in any of the three language
 
 // Add support for multiple categories
