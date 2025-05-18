@@ -1,0 +1,149 @@
+[
+  {
+    "textDari": ".با یک دست صدا نمی‌آید",
+    "textPashto": ".په يوه لاس چک نه کيږي",
+    "translation": "One hand alone cannot make a sound.",
+    "meaning": "Teamwork or cooperation is necessary to achieve results.",
+    "category": "cooperation"
+  },
+  {
+    "textDari": ".همسایه بد، خانه را ویران می‌کند",
+    "textPashto": ".بد ګاونډی کور ورانوي",
+    "translation": "A bad neighbor destroys the home.",
+    "meaning": "The people around you can greatly impact your peace and safety.",
+    "category": "community"
+  },
+  {
+    "textDari": ".از ماست که بر ماست",
+    "textPashto": ".دا زموږ له لاسه دی، نه د بخت کار",
+    "translation": "It’s from us that it is upon us.",
+    "meaning": "Our own actions often bring us trouble.",
+    "category": "self-responsibility"
+  },
+  {
+    "textDari": ".هرچه بگندد نمکش می‌زنند، وای به روزی که بگندد نمک",
+    "textPashto": ".هر څه چې خوسا شي، مالګه پکې اچوي، وای د هغه ورځ چې مالګه خوسا شي",
+    "translation": "They salt what rots, but what if the salt itself rots?",
+    "meaning": "If the one meant to fix the problem becomes corrupt, who will help then?",
+    "category": "wisdom"
+  },
+  {
+    "textDari": ".جلدی کار از شیطان است",
+    "textPashto": ".بیړه د شيطان کار دی",
+    "translation": "Haste is from the devil.",
+    "meaning": "Rushing into things often leads to mistakes; be patient and deliberate.",
+    "category": "wisdom"
+  },
+  {
+    "textDari": ".دو صد گفته چون نیم کردار نیست",
+    "textPashto": ".سل خبرې د يو عمل ارزښت نه لري",
+    "translation": "Two hundred words are not worth half an action.",
+    "meaning": "Actions speak louder than words.",
+    "category": "wisdom"
+  },
+  {
+    "textDari": ".گر صبر کنی ز غوره حلوا سازی",
+    "textPashto": ".که صبر وکړې له تروه مېوې خوږه حلوه جوړیږي",
+    "translation": "If you are patient, sour grapes will become sweet halwa.",
+    "meaning": "With patience, even the bitter can become sweet.",
+    "category": "wisdom"
+  },
+  {
+    "textDari": ".هرکه طمع کرد، هلاک شد",
+    "textPashto": ".حرص والا تباه شو",
+    "translation": "He who is greedy will be destroyed.",
+    "meaning": "Greed leads to downfall.",
+    "category": "wisdom"
+  },
+  {
+    "textDari": ".یک چوب می‌شکند، اما یک دسته نمی‌شکند",
+    "textPashto": ".يو لرګی ماتيږي، خو څو لرګي يو ځای نه ماتيږي",
+    "translation": "One stick breaks easily, but a bundle does not.",
+    "meaning": "Unity and teamwork make you stronger.",
+    "category": "cooperation"
+  },
+  {
+    "textDari": ".اگر همه با هم باشند، کوه را می‌توان جابجا کرد",
+    "textPashto": ".که ټول سره يو شي، نو غر هم خوځولای شي",
+    "translation": "If all are united, even a mountain can be moved.",
+    "meaning": "Cooperation can overcome even the biggest challenges.",
+    "category": "cooperation"
+  },
+  {
+    "textDari": ".یک دست به تنهایی کاری نمی‌تواند کرد",
+    "textPashto": ".يو لاس یواځې څه نشي کولی",
+    "translation": "One hand alone can't do much.",
+    "meaning": "You need others to achieve meaningful goals.",
+    "category": "cooperation"
+  },
+  {
+    "textDari": ".دو فکر بهتر از یک فکر است",
+    "textPashto": ".دو فکر تر يو فکر غوره دی",
+    "translation": "Two minds are better than one.",
+    "meaning": "Collaboration brings bet solutions.",
+    "category": "cooperation"
+  },
+  {
+    "textDari": ".همکاری قوت می‌آورد",
+    "textPashto": ".همکاري ځواک راولي",
+    "translation": "Cooperation brings strength.",
+    "meaning": "Working together empowers everyone involved.",
+    "category": "cooperation"
+  },
+  {
+    "textDari": ".صبر تلخ است، اما میوه‌اش شیرین است",
+    "textPashto": ".صبر تریو دی، خو مېوه یې خوږه ده",
+    "translation": "Patience is bitter, but its fruit is sweet.",
+    "meaning": "Though waiting is hard, the outcome is rewarding.",
+    "category": "patience"
+  },
+  {
+    "textDari": ".با صبر، سنگ نرم می‌شود",
+    "textPashto": ".په صبر سره ډبره نرمه کيږي",
+    "translation": "With patience, even stone becomes soft.",
+    "meaning": "Patience can overcome even the hardest obstacles.",
+    "category": "patience"
+  },
+  {
+    "textDari": ".آن که صبر دارد، کلید هر در دارد",
+    "textPashto": ".چا چې صبر وکړ، د هر دروازه کیلي به لاس ته راوړي",
+    "translation": "He who has patience holds the key to every door.",
+    "meaning": "Patience opens the way to many opportunities.",
+    "category": "patience"
+  },
+  {
+    "textDari": ".صبر، درد را دوا می‌کند",
+    "textPashto": ".صبر د درد دوا ده",
+    "translation": "Patience is the cure for pain.",
+    "meaning": "Time and patience help heal emotional wounds.",
+    "category": "patience"
+  },
+  {
+    "textDari": ".عجله کار شیطان است، صبر کار انسان",
+    "textPashto": ".بیړه د شیطان کار دی، صبر د انسان",
+    "translation": "Haste is the work of the devil, patience is the work of man.",
+    "meaning": "Wise people are patient; impulsive behavior leads to regret.",
+    "category": "patience"
+  },
+  {
+    "textDari": ".صبر در سختی، نشانه قدرت است",
+    "textPashto": ".په سختیو کې صبر د ځواک نښه ده",
+    "translation": "Patience in hardship is a sign of strength.",
+    "meaning": "True strength is shown through enduring tough times calmly.",
+    "category": "patience"
+  },
+  {
+    "textDari": ".صبر کن، که طلوع بعد از تاریکی است",
+    "textPashto": ".صبر وکړه، ځکه روڼا د تیارې نه وروسته راځي",
+    "translation": "Be patient, for dawn comes after darkness.",
+    "meaning": "Tough times will pass; stay patient and hopeful.",
+    "category": "patience"
+  },
+  {
+    "textDari": ". چاه کن در چاه است",
+    "textPashto": ".څوک چې د بل لپاره کوهي کيندي، خپل ځان پکې غورځوي",
+    "translation": "The well-digger has fallen into the well.",
+    "meaning": "If you plan harm for others, you may become a victim of your own plot.",
+    "category": "wisdom"
+  }
+]
