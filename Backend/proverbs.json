@@ -145,5 +145,29 @@
     "translation": "The well-digger has fallen into the well.",
     "meaning": "If you plan harm for others, you may become a victim of your own plot.",
     "category": "wisdom"
+  },
+  {
+    "textDari": "Hey its the frist",
+    "textPashto": ".بد ګاونډی کور ورانوي",
+    "translation": "A bad neighbor destroys the home.",
+    "meaning": "The people around you can greatly impact your peace and safety.",
+    "category": "community",
+    "taskID": "1747613821509"
+  },
+  {
+    "textDari": "Hey its the frist",
+    "textPashto": ".بد ګاونډی کور ورانوي",
+    "translation": "A bad neighbor destroys the home.",
+    "meaning": "The people around you can greatly impact your peace and safety.",
+    "category": "community",
+    "taskID": "1747613823741"
+  },
+  {
+    "textDari": ".با یک دست صدا نمی‌آید",
+    "textPashto": ".په يوه لاس چک نه کيږي",
+    "translation": "One hand alone cannot make a sound.",
+    "meaning": "Teamwork or cooperation is necessary to achieve results.",
+    "category": "cooperation",
+    "taskID": "1747615434433"
   }
 ]
