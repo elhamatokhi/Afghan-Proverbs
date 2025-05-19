@@ -48,15 +48,18 @@ router.post('/edit/:id', (req, res) => {
   const ID = req.params.id
   const proverb = proverbs[ID]
 
+  if (!proverb) {
+    return res.status(404).json({ error: 'Proverb not found' })
+  }
+
   proverb.textDari = req.body.textDari
   proverb.textPashto = req.body.textPashto
   proverb.translation = req.body.translation
   proverb.meaning = req.body.meaning
   proverb.category = req.body.category
 
-  proverbs.push(proverb)
   fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
-  res.json(proverbs)
+  res.json({ message: 'Proverb updated successfully', proverb })
 })
 
 //Delete a proverb
