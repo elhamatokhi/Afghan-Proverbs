@@ -38,15 +38,21 @@ router.post('/addProverb', (req, res) => {
 
 // Edit
 
-router.get('/edit/:id', (req, res) => {
-  const ID = req.params.id
-  const proverb = proverbs[ID]
+router.get('/edit/:taskID', (req, res) => {
+  const taskID = req.params.taskID
+  const proverb = proverbs.find(p => p.taskID === taskID)
+  if (!proverb) {
+    return res.status(404).json({ message: 'Proverb not found' })
+  }
   res.json(proverb)
 })
 
-router.post('/edit/:id', (req, res) => {
-  const ID = req.params.id
-
+router.post('/edit/:taskID', (req, res) => {
+  const taskID = req.params.taskID
+  const proverbIndex = proverbs.findIndex(p => p.taskID === taskID)
+  if (proverbIndex === -1) {
+    return res.status(404).json({ message: 'Proverb not found' })
+  }
   const updatedProverb = {
     textDari: req.body.textDari,
     textPashto: req.body.textPashto,
@@ -55,7 +61,7 @@ router.post('/edit/:id', (req, res) => {
     category: req.body.category
   }
 
-  proverbs[ID] = updatedProverb
+  proverbs[proverbIndex] = updatedProverb
 
   fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
   res.json({ message: 'Proverb updated successfully', updatedProverb })

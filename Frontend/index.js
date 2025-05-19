@@ -57,26 +57,28 @@ app.post('/add', async (req, res) => {
     res.status(500).send('Failed to create task.')
   }
 })
-
-// Edit
-app.get('/edit/:id', async (req, res) => {
+// GET route for edit page
+app.get('/edit/:taskID', async (req, res) => {
   try {
-    const ID = req.params.id
+    const taskID = req.params.taskID
     const response = await axios.get(
-      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${ID}`
+      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`
     )
     const proverb = response.data
 
-    res.render('edit', { proverb, id: ID })
+    console.log(proverb)
+    console.log(taskID)
+    res.render('edit', { proverb, taskID })
   } catch (error) {
     console.log(`Failed to edit the proverb in backend`, error.message)
     res.status(500).send('Failed to edit the proverb.')
   }
 })
 
-app.post('/edit/:id', async (req, res) => {
+// POST route to submit edit
+app.post('/edit/:taskID', async (req, res) => {
   try {
-    const ID = req.params.id
+    const taskID = req.params.taskID
     const updatedProverb = {
       textDari: req.body.textDari,
       textPashto: req.body.textPashto,
@@ -86,7 +88,7 @@ app.post('/edit/:id', async (req, res) => {
     }
 
     await axios.post(
-      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${ID}`,
+      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`,
       updatedProverb
     )
     res.redirect('/proverbs')
