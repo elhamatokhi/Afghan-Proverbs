@@ -74,7 +74,7 @@ app.get('/edit/:id', async (req, res) => {
   }
 })
 
-app.post('/edit/:id', (req, res) => {
+app.post('/edit/:id', async (req, res) => {
   try {
     const ID = req.params.id
     const updatedProverb = {
@@ -85,7 +85,7 @@ app.post('/edit/:id', (req, res) => {
       category: req.body.category
     }
 
-    axios.post(
+    await axios.post(
       `https://afghan-proverbs-1-2i9x.onrender.com/edit/${ID}`,
       updatedProverb
     )
@@ -93,6 +93,20 @@ app.post('/edit/:id', (req, res) => {
   } catch (error) {
     console.log(`Failed to edit the proverb`, error.message)
     res.status(500).send(`failed to edit the proverb`)
+  }
+})
+
+// Delete
+app.post('/proverbs/:id', async (req, res) => {
+  try {
+    const ID = req.params.id
+    await axios.post(
+      `https://afghan-proverbs-1-2i9x.onrender.com/proverbs/${ID}`
+    )
+    res.redirect('/proverbs')
+  } catch (error) {
+    console.log(`Failed to delete from backend`, error.message)
+    res.status(500).send(`Faild to delete the proverb`)
   }
 })
 
