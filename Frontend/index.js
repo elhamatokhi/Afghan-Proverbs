@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
 })
 
 // Get all proverbs -  Add support for multiple categories
-
 app.get('/proverbs', async (req, res) => {
   try {
     const selectedCategory = req.query.category || ''
@@ -33,69 +32,34 @@ app.get('/proverbs', async (req, res) => {
   }
 })
 
-// Add a new proverb
-
-app.get('/add', (req, res) => {
+// Add
+app.get('/addProverb', (req, res) => {
   res.render('add')
+  console.log(
+    'You are able to see because you have a get route in the frontend now!'
+  )
 })
 
-app.post('/add', async (req, res) => {
+app.post('/addProverb', async (req, res) => {
   try {
-    const newProverb = req.body
+    const proverb = req.body
     const response = await axios.post(
       'https://afghan-proverbs-1-2i9x.onrender.com/addProverb',
-      newProverb
+      proverb
     )
+    let proverbs = response.data
+    console.log(proverbs)
     if (response.status === 200) {
       res.render('index', { proverb: null })
+      console.log('Proverb added successfully!!!!!!!!')
     } else {
-      throw new Error(`Failed to create task on the other server!`)
+      throw new Error('Failed to create a new proverb in the backend🙈')
     }
-  } catch (err) {
-    console.log('Failed to create task', err.message)
-    res.status(500).send('Failed to create task.')
-  }
-})
-
-// Edit
-
-// GET route for edit page
-app.get('/edit/:id', async (req, res) => {
-  try {
-    const taskID = req.params.id
-    const response = await axios.get(
-      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`
-    )
-    const proverb = response.data
-
-    res.render('edit', { proverb, taskID })
   } catch (error) {
-    console.log(`Failed to edit the proverb in backend`, error.message)
-    res.status(500).send('Failed to edit the proverb.')
+    console.log('failed to create task in the frontend')
+    res.status(500).send('Failed to create a new proverb on frontend')
   }
 })
-
-// app.post('/eidt/:id', async (req, res) => {
-//   console.log(req.body)
-//   const taskID = req.params.id
-//   try {
-//     const updatedProverb = {
-//       textDari: req.body.textDari,
-//       textPashto: req.body.textPashto,
-//       translation: req.body.translation,
-//       meaning: req.body.meaning,
-//       category: req.body.category
-//     }
-//     await axios.post(
-//       `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`,
-//       updatedProverb
-//     )
-//     res.redirect('/proverbs')
-//   } catch (error) {
-//     console.log(`Failed to edit the proverb: `, error.message)
-//     res.status(500).send(`failed to edit the proverb`)
-//   }
-// })
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`)
