@@ -37,19 +37,19 @@ router.post('/addProverb', (req, res) => {
 })
 
 // Get a single proverb by ID
-// router.get('/proverbs/:id', (req, res) => {
-//   const taskID = req.params.id
-//   const proverbs = loadProverbs()
-//   const proverb = proverbs.find(p => p.taskID === taskID)
-//   if (!proverb) {
-//     return res.status(404).json({ message: 'Proverb not found' })
-//   }
-//   res.json(proverb)
-// })
+router.get('/proverbs/:id', (req, res) => {
+  const taskID = req.params.id
+  const proverbs = loadProverbs()
+  const proverb = proverbs.find(p => p.taskID === taskID)
+  if (!proverb) {
+    return res.status(404).json({ message: 'Proverb not found' })
+  }
+  res.json(proverb)
+})
 
 // Edit a single proverb
 
-router.post('/proverbs/:id', (req, res) => {
+router.post('/edit/:id', (req, res) => {
   let proverbs = loadProverbs()
   const taskID = req.params.id
   console.log('From Backend', req.body)
