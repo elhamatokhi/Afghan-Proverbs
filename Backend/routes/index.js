@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { readFileSync } from 'fs'
+import { copyFileSync, readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
@@ -14,14 +14,12 @@ const router = Router()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-let proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
-
 // Get all proverbs
-router.get('/', getAllProverbs)
 
 // Add support for multiple categories
 router.get('/proverbs', (req, res) => {
-  // Bonus - list proverbs by Categories
+  let proverbs = loadProverbs()
+  console.log('Proverbs length', proverbs.length)
   const selectedCategory = req.query.category || ''
   if (selectedCategory) {
     proverbs = proverbs.filter(p => p.category === selectedCategory)
@@ -31,7 +29,7 @@ router.get('/proverbs', (req, res) => {
 
 // Add a new proverb
 router.post('/addProverb', (req, res) => {
-  loadProverbs()
+  const proverbs = loadProverbs()
   const proverb = req.body
   const newProverbID = Date.now().toString() // get the time -> to string
   proverb.taskID = newProverbID
@@ -40,60 +38,32 @@ router.post('/addProverb', (req, res) => {
   res.send(`Task created successfully! 🎉`)
 })
 
-// Get a single proverb by ID
-
-// Edit
-
-// router.get('/edit/:taskID', (req, res) => {
-//   const taskID = req.params.taskID
-//   const proverb = proverbs.find(p => p.taskID === taskID)
-//   if (!proverb) {
-//     return res.status(404).json({ message: 'Proverb not found' })
-//   }
-//   res.json(proverb)
-// })
-
-// router.post('/edit/:taskID', (req, res) => {
-//   const taskID = req.params.taskID
-//   const proverbIndex = proverbs.findIndex(p => p.taskID === taskID)
-//   if (proverbIndex === -1) {
-//     return res.status(404).json({ message: 'Proverb not found' })
-//   }
-//   const updatedProverb = {
-//     textDari: req.body.textDari,
-//     textPashto: req.body.textPashto,
-//     translation: req.body.translation,
-//     meaning: req.body.meaning,
-//     category: req.body.category
-//   }
-
-//   proverbs[proverbIndex] = updatedProverb
-
-//   fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
-//   res.json({ message: 'Proverb updated successfully', updatedProverb })
-// })
-
-// GET route to fetch a specific proverb
-
-// PUT route to update a specific proverb by taskID
-router.put('/edit/:taskID', (req, res) => {
-  const taskID = req.params.taskID
-
-  let proverbs = []
-  try {
-    proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
-  } catch (err) {
-    return res.status(500).json({ message: 'Failed to read proverbs file.' })
-  }
-
-  const proverbIndex = proverbs.findIndex(p => p.taskID === taskID)
-  if (proverbIndex === -1) {
+// // Get a single proverb by ID
+router.get('/proverbs/:id', (req, res) => {
+  const taskID = req.params.id
+  const proverbs = loadProverbs()
+  const proverb = proverbs.find(p => p.taskID === taskID)
+  if (!proverb) {
     return res.status(404).json({ message: 'Proverb not found' })
   }
+  res.json(proverb)
+})
 
-  // Update the proverb, preserving taskID
+// Edit a single proverb
+
+router.put('/proverbs/:id', (req, res) => {
+  let proverbs = loadProverbs()
+  const taskID = req.params.id
+
+  const index = proverbs.findIndex(p => p.taskID === taskID)
+  if (index === -1) {
+    return res.status(404).json({ message: 'Proverb not found.' })
+  }
+
+  console.log('ID received:', req.params.id)
+  console.log('Total Proverbs:', proverbs.length)
+
   const updatedProverb = {
-    ...proverbs[proverbIndex],
     textDari: req.body.textDari,
     textPashto: req.body.textPashto,
     translation: req.body.translation,
@@ -101,20 +71,31 @@ router.put('/edit/:taskID', (req, res) => {
     category: req.body.category
   }
 
-  proverbs[proverbIndex] = updatedProverb
+  updatedProverb.taskID = taskID
 
-  try {
-    fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
-    res.json({ message: 'Proverb updated successfully', updatedProverb })
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to write to proverbs file.' })
-  }
+  proverbs[index] = updatedProverb
+  console.log(updatedProverb)
+
+  fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
+  res.json({ message: 'Proverb updated successfully', updatedProverb })
 })
 
-//Delete a proverb
-router.post('/proverbs/:id', (req, res) => {
+//  Delete a single proverb
+router.post('/proverbs/delete/:id', (req, res) => {
+  let proverbs = loadProverbs()
   const ID = req.params.id
-  proverbs.splice(ID, 1)
+
+  console.log('ID received:', req.params.id)
+  console.log('Total Proverbs:', proverbs.length)
+
+  const initialLength = proverbs.length
+
+  proverbs = proverbs.filter(p => p.taskID !== ID)
+
+  if (proverbs.length === initialLength) {
+    return res.status(400).json({ error: 'No proverb found with that taskID' })
+  } else console.log('Deleted successfully!')
+
   fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
   res.json(proverbs)
 })
