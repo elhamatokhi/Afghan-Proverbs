@@ -21,25 +21,33 @@ router.get('/proverbs', (req, res) => {
 })
 
 router.post('/addProverb', (req, res) => {
-  try {
-    const newProverb = req.body
-    const proverbs = loadProverbs()
+  const proverbsJSON = readFileSync(
+    path.join(__dirname, '../proverbs.json'),
+    'utf-8'
+  )
+  let proverbs = JSON.parse(proverbsJSON)
 
-    newProverb.taskID = Date.now().toString()
-    proverbs.push(newProverb)
+  const newProverb = {
+    textDari: req.body.textDari,
+    textPashto: req.body.textPashto,
+    translation: req.body.translation,
+    meaning: req.body.meaning,
+    category: req.body.category
+  }
 
-    saveProverbs(proverbs, err => {
+  proverbs.push(newProverb)
+
+  fs.writeFile(
+    path.join(__dirname, '../proverbs.json'),
+    JSON.stringify(proverbs, null, 2),
+    err => {
       if (err) {
-        console.error('❌ Error saving:', err)
         return res.status(500).send('Error saving data')
       }
-      console.log('✅ Proverb saved successfully!')
-      res.status(200).send('Proverb saved successfully')
-    })
-  } catch (error) {
-    console.error('❌ Backend error:', error.message)
-    res.status(500).send('Internal server error')
-  }
+      res.redirect('/proverbs')
+    }
+  )
+  console.log(newProverb)
 })
 
 // Get a single proverb by ID
@@ -63,6 +71,7 @@ router.get('/edit/:id', (req, res) => {
   }
   res.json(proverbs[taskID])
 })
+
 router.post('/edit/:id', (req, res) => {
   let proverbs = loadProverbs()
   const taskID = req.params.id
