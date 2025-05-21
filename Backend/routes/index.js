@@ -15,14 +15,13 @@ const __dirname = path.dirname(__filename)
 
 let proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
 
-// Get all proverbs -  Add support for multiple categories
-
+// Get all proverbs
 router.get('/', getAllProverbs)
 
+// Add support for multiple categories
 router.get('/proverbs', (req, res) => {
   // Bonus - list proverbs by Categories
   const selectedCategory = req.query.category || ''
-
   if (selectedCategory) {
     proverbs = proverbs.filter(p => p.category === selectedCategory)
   }
@@ -31,6 +30,7 @@ router.get('/proverbs', (req, res) => {
 
 // Add a new proverb
 router.post('/addProverb', (req, res) => {
+  let proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
   const proverb = req.body
   const newProverbID = Date.now().toString() // get the time -> to string
   proverb.taskID = newProverbID
@@ -38,6 +38,7 @@ router.post('/addProverb', (req, res) => {
   fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
   res.send(`Task created successfully! 🎉`)
 })
+
 // Get a single proverb by ID
 
 // Edit
