@@ -3,6 +3,11 @@ import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
+import {
+  getAllProverbs,
+  saveProverbs,
+  getRandomProverb
+} from '../Controllers/proverbControllers.js'
 const router = Router()
 
 const __filename = fileURLToPath(import.meta.url)
@@ -11,9 +16,8 @@ const __dirname = path.dirname(__filename)
 let proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
 
 // Get all proverbs -  Add support for multiple categories
-router.get('/', (req, res) => {
-  res.json(proverbs)
-})
+
+router.get('/', getAllProverbs)
 
 router.get('/proverbs', (req, res) => {
   // Bonus - list proverbs by Categories
@@ -76,11 +80,7 @@ router.post('/proverbs/:id', (req, res) => {
 })
 
 // Endpoint Random Proverb
-router.get('/random', (req, res) => {
-  const randomIndex = Math.floor(Math.random() * proverbs.length)
-  const randomProverb = proverbs[randomIndex]
-  res.json(randomProverb)
-})
+router.get('/random', getRandomProverb)
 
 // Search by keyword in any of the three language
 
