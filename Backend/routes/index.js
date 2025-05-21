@@ -48,6 +48,7 @@ router.post('/addProverb', (req, res) => {
         return res.status(500).send('Error saving data')
       }
       res.redirect('/proverbs')
+      console.log('wrote to the file')
     }
   )
   console.log(newProverb)
