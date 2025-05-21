@@ -27,15 +27,15 @@ router.post('/addProverb', (req, res) => {
   const newProverbID = Date.now().toString() // get the time -> to string
   proverb.taskID = newProverbID
 
+  console.log('Before pushing', proverbs)
   proverbs.push(proverb)
-  console.log(proverbs)
   saveProverbs(proverbs, err => {
     if (err) {
       return res.status(500).send('Error saving data')
     }
     res.redirect('/proverbs')
   })
-  console.log(proverbs)
+  console.log('After pushing', proverbs)
 })
 
 // Get a single proverb by ID
