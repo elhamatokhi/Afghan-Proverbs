@@ -20,45 +20,26 @@ router.get('/proverbs', (req, res) => {
   res.json(proverbs)
 })
 
-// Add a new proverb
-// router.post('/addProverb', (req, res) => {
-//   const proverbs = loadProverbs()
-//   const proverb = req.body
-//   const newProverbID = Date.now().toString() // get the time -> to string
-//   proverb.taskID = newProverbID
-
-//   console.log('Before pushing', proverbs)
-//   proverbs.push(proverb)
-//   saveProverbs(proverbs, err => {
-//     if (err) {
-//       return res.status(500).send('Error saving data')
-//     }
-//     res.redirect('/proverbs')
-//   })
-//   console.log('After pushing', proverbs)
-// })
-// Backend: /routes/index.js or controller
 router.post('/addProverb', (req, res) => {
-  const newProverb = req.body
+  try {
+    const newProverb = req.body
+    const proverbs = loadProverbs()
 
-  let proverbs = loadProverbs() // this should read from `proverbs.json`
+    newProverb.taskID = Date.now().toString()
+    proverbs.push(newProverb)
 
-  newProverb.taskID = Date.now().toString() // add unique ID
-  proverbs.push(newProverb)
-
-  fs.writeFile(
-    path.join(__dirname, '../proverbs.json'),
-    JSON.stringify(proverbs, null, 2),
-    err => {
+    saveProverbs(proverbs, err => {
       if (err) {
-        console.error('Error saving proverb:', err)
+        console.error('❌ Error saving:', err)
         return res.status(500).send('Error saving data')
       }
-
-      console.log('✅ Proverb saved to JSON!')
-      res.status(200).send({ message: 'Proverb saved', newProverb })
-    }
-  )
+      console.log('✅ Proverb saved successfully!')
+      res.status(200).send('Proverb saved successfully')
+    })
+  } catch (error) {
+    console.error('❌ Backend error:', error.message)
+    res.status(500).send('Internal server error')
+  }
 })
 
 // Get a single proverb by ID
