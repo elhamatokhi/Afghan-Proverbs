@@ -14,8 +14,6 @@ const router = Router()
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Get all proverbs
-
 // Add support for multiple categories
 router.get('/proverbs', (req, res) => {
   let proverbs = loadProverbs()
@@ -38,20 +36,20 @@ router.post('/addProverb', (req, res) => {
   res.send(`Task created successfully! 🎉`)
 })
 
-// // Get a single proverb by ID
-router.get('/proverbs/:id', (req, res) => {
-  const taskID = req.params.id
-  const proverbs = loadProverbs()
-  const proverb = proverbs.find(p => p.taskID === taskID)
-  if (!proverb) {
-    return res.status(404).json({ message: 'Proverb not found' })
-  }
-  res.json(proverb)
-})
+// Get a single proverb by ID
+// router.get('/proverbs/:id', (req, res) => {
+//   const taskID = req.params.id
+//   const proverbs = loadProverbs()
+//   const proverb = proverbs.find(p => p.taskID === taskID)
+//   if (!proverb) {
+//     return res.status(404).json({ message: 'Proverb not found' })
+//   }
+//   res.json(proverb)
+// })
 
 // Edit a single proverb
 
-router.put('/proverbs/:id', (req, res) => {
+router.post('/proverbs/:id', (req, res) => {
   let proverbs = loadProverbs()
   const taskID = req.params.id
 
