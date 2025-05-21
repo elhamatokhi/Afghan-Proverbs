@@ -1,5 +1,4 @@
 import fs from 'fs'
-import { json } from 'stream/consumers'
 
 const loadProverbs = () => {
   return JSON.parse(fs.readFileSync('proverbs.json', 'utf-8'))
