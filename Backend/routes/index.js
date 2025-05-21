@@ -6,7 +6,8 @@ import fs from 'fs'
 import {
   getAllProverbs,
   saveProverbs,
-  getRandomProverb
+  getRandomProverb,
+  loadProverbs
 } from '../Controllers/proverbControllers.js'
 const router = Router()
 
@@ -30,7 +31,7 @@ router.get('/proverbs', (req, res) => {
 
 // Add a new proverb
 router.post('/addProverb', (req, res) => {
-  let proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
+  loadProverbs()
   const proverb = req.body
   const newProverbID = Date.now().toString() // get the time -> to string
   proverb.taskID = newProverbID

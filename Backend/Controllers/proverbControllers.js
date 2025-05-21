@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-const loadProverbs = () => {
+export const loadProverbs = () => {
   return JSON.parse(fs.readFileSync('proverbs.json', 'utf-8'))
 }
 
