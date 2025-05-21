@@ -47,7 +47,7 @@ app.post('/addProverb', async (req, res) => {
       'https://afghan-proverbs-1-2i9x.onrender.com/addProverb',
       proverb
     )
-    // let proverbs = response.data
+
     if (response.status === 200) {
       res.render('index', { proverb: null })
       console.log('Proverb added successfully!!!!!!!!')

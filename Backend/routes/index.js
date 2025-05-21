@@ -21,21 +21,44 @@ router.get('/proverbs', (req, res) => {
 })
 
 // Add a new proverb
-router.post('/addProverb', (req, res) => {
-  const proverbs = loadProverbs()
-  const proverb = req.body
-  const newProverbID = Date.now().toString() // get the time -> to string
-  proverb.taskID = newProverbID
+// router.post('/addProverb', (req, res) => {
+//   const proverbs = loadProverbs()
+//   const proverb = req.body
+//   const newProverbID = Date.now().toString() // get the time -> to string
+//   proverb.taskID = newProverbID
 
-  console.log('Before pushing', proverbs)
-  proverbs.push(proverb)
-  saveProverbs(proverbs, err => {
-    if (err) {
-      return res.status(500).send('Error saving data')
+//   console.log('Before pushing', proverbs)
+//   proverbs.push(proverb)
+//   saveProverbs(proverbs, err => {
+//     if (err) {
+//       return res.status(500).send('Error saving data')
+//     }
+//     res.redirect('/proverbs')
+//   })
+//   console.log('After pushing', proverbs)
+// })
+// Backend: /routes/index.js or controller
+router.post('/addProverb', (req, res) => {
+  const newProverb = req.body
+
+  let proverbs = loadProverbs() // this should read from `proverbs.json`
+
+  newProverb.taskID = Date.now().toString() // add unique ID
+  proverbs.push(newProverb)
+
+  fs.writeFile(
+    path.join(__dirname, '../proverbs.json'),
+    JSON.stringify(proverbs, null, 2),
+    err => {
+      if (err) {
+        console.error('Error saving proverb:', err)
+        return res.status(500).send('Error saving data')
+      }
+
+      console.log('✅ Proverb saved to JSON!')
+      res.status(200).send({ message: 'Proverb saved', newProverb })
     }
-    res.redirect('/proverbs')
-  })
-  console.log('After pushing', proverbs)
+  )
 })
 
 // Get a single proverb by ID
