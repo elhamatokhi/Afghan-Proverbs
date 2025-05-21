@@ -57,7 +57,8 @@ app.post('/add', async (req, res) => {
     res.status(500).send('Failed to create task.')
   }
 })
-// GET route for edit p age
+
+// GET route for edit page
 app.get('/edit/:taskID', async (req, res) => {
   try {
     const taskID = req.params.taskID
@@ -66,8 +67,6 @@ app.get('/edit/:taskID', async (req, res) => {
     )
     const proverb = response.data
 
-    console.log(proverb)
-    console.log(taskID)
     res.render('edit', { proverb, taskID })
   } catch (error) {
     console.log(`Failed to edit the proverb in backend`, error.message)
@@ -118,12 +117,14 @@ app.get('/random', async (req, res) => {
   )
   const result = response.data
   res.render('index', { proverb: result })
+
   try {
   } catch (err) {
     console.log('Failed to create task', err.message)
     res.status(500).send('Failed to create task.')
   }
 })
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`)
 })
