@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import { copyFileSync, readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
@@ -11,13 +10,9 @@ import {
 } from '../Controllers/proverbControllers.js'
 const router = Router()
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
 // Add support for multiple categories
 router.get('/proverbs', (req, res) => {
   let proverbs = loadProverbs()
-  console.log('Proverbs length', proverbs.length)
   const selectedCategory = req.query.category || ''
   if (selectedCategory) {
     proverbs = proverbs.filter(p => p.category === selectedCategory)
@@ -32,8 +27,13 @@ router.post('/addProverb', (req, res) => {
   const newProverbID = Date.now().toString() // get the time -> to string
   proverb.taskID = newProverbID
   proverbs.push(proverb)
-  fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
-  res.send(`Task created successfully! 🎉`)
+
+  saveProverbs(proverbs, err => {
+    if (err) {
+      return res.status(500).send('Error saving data')
+    }
+    res.redirect('/proverbs')
+  })
 })
 
 // Get a single proverb by ID
@@ -48,7 +48,15 @@ router.get('/proverbs/:id', (req, res) => {
 })
 
 // Edit a single proverb
-
+router.get('/edit/:id', (req, res) => {
+  const taskID = req.params.id
+  let proverbs = loadProverbs()
+  const proverb = proverbs.find(p => p.taskID === taskID)
+  if (!proverb) {
+    return res.status(404).json({ message: 'Proverb not found' })
+  }
+  res.json(proverbs[taskID])
+})
 router.post('/edit/:id', (req, res) => {
   let proverbs = loadProverbs()
   const taskID = req.params.id

@@ -1,10 +1,10 @@
 [
   {
-    "textDari": "ویرایش شده",
-    "textPashto": "ایډیټ شوی",
-    "translation": "Edited proverb",
+    "textDari": "دریای آرام هیچ‌گاه یک ناخدای ماهر نمی‌سازد",
+    "textPashto": "نرم سمندر له کبله هیڅ ماهر ملوان نه جوړېږي",
+    "translation": "A smooth sea never made a skilled sailor.",
     "meaning": "This is the new meaning",
-    "category": "wisdom",
+    "category": "patience",
     "taskID": "1747826979060"
   },
   {
@@ -46,5 +46,13 @@
     "meaning": "People are most aware of their own duties and challenges.",
     "category": "self-responsibility",
     "taskID": "1747827085565"
+  },
+  {
+    "textDari": "دریای آرام هیچ‌گاه یک ناخدای ماهر نمی‌سازد",
+    "textPashto": "نرم سمندر له کبله هیڅ ماهر ملوان نه جوړېږي",
+    "translation": "A smooth sea never made a skilled sailor.",
+    "meaning": "This is the new meaning",
+    "category": "patience",
+    "taskID": "1747851261851"
   }
 ]
