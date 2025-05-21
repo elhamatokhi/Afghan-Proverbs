@@ -52,7 +52,7 @@ router.post('/addProverb', (req, res) => {
 router.post('/proverbs/:id', (req, res) => {
   let proverbs = loadProverbs()
   const taskID = req.params.id
-
+  console.log('From Backend', req.body)
   const index = proverbs.findIndex(p => p.taskID === taskID)
   if (index === -1) {
     return res.status(404).json({ message: 'Proverb not found.' })
