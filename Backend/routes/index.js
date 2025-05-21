@@ -73,36 +73,15 @@ router.post('/addProverb', (req, res) => {
 //   res.json({ message: 'Proverb updated successfully', updatedProverb })
 // })
 
-const fs = require('fs')
-const path = require('path')
-const filePath = path.join(__dirname, '../proverbs.json') // Adjust this as needed
-
 // GET route to fetch a specific proverb
-router.get('/edit/:taskID', (req, res) => {
+
+// PUT route to update a specific proverb by taskID
+router.put('/edit/:taskID', (req, res) => {
   const taskID = req.params.taskID
 
   let proverbs = []
   try {
-    proverbs = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-  } catch (err) {
-    return res.status(500).json({ message: 'Failed to read proverbs file.' })
-  }
-
-  const proverb = proverbs.find(p => p.taskID === taskID)
-  if (!proverb) {
-    return res.status(404).json({ message: 'Proverb not found' })
-  }
-
-  res.json(proverb)
-})
-
-// POST route to update a specific proverb
-router.post('/edit/:taskID', (req, res) => {
-  const taskID = req.params.taskID
-
-  let proverbs = []
-  try {
-    proverbs = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+    proverbs = JSON.parse(fs.readFileSync('proverbs.json'))
   } catch (err) {
     return res.status(500).json({ message: 'Failed to read proverbs file.' })
   }
@@ -112,7 +91,7 @@ router.post('/edit/:taskID', (req, res) => {
     return res.status(404).json({ message: 'Proverb not found' })
   }
 
-  // 🛠️ Update the existing proverb, preserving taskID
+  // Update the proverb, preserving taskID
   const updatedProverb = {
     ...proverbs[proverbIndex],
     textDari: req.body.textDari,
@@ -125,7 +104,7 @@ router.post('/edit/:taskID', (req, res) => {
   proverbs[proverbIndex] = updatedProverb
 
   try {
-    fs.writeFileSync(filePath, JSON.stringify(proverbs, null, 2))
+    fs.writeFileSync('proverbs.json', JSON.stringify(proverbs, null, 2))
     res.json({ message: 'Proverb updated successfully', updatedProverb })
   } catch (err) {
     res.status(500).json({ message: 'Failed to write to proverbs file.' })
