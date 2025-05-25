@@ -10,7 +10,6 @@ export const loadProverbs = () => {
     path.join(__dirname, '../proverbs.json'),
     'utf-8'
   )
-  console.log(proverbsJSON)
   let proverbs = JSON.parse(proverbsJSON)
   return proverbs
 }

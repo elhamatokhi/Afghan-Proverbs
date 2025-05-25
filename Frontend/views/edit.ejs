@@ -1,13 +1,14 @@
 <%- include('partials/header',{title: "Edit"}) %>
-
 <form method="POST" action="/edit/<%= taskID %>" class="form">
+
+
   <label for="dari">Dari - دری‌</label>
   <input
     type="text"
     name="textDari"
-    id="dari"
+    id=""
     required
-    value="<%= proverb.textDari%>"
+    value="<%= proverb.textDari %>"
   />
   <label for="pashto">Pashto - پشتو</label>
   <input
@@ -36,5 +37,5 @@
     <option value="humor" <%= proverb.category === 'humor' ? 'selected' : '' %>>Humor</option>
   </select>
 
-  <button type="submit">Update</button>
+  <button type="submit" >Update</button>
 </form>

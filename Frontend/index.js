@@ -61,6 +61,55 @@ app.post('/addProverb', async (req, res) => {
   }
 })
 
+// Edit
+app.get('/edit/:id', async (req, res) => {
+  try {
+    const taskID = req.params.id
+    console.log(taskID)
+    const response = await axios.get(
+      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`
+    )
+    const proverb = response.data
+    console.log(proverb)
+
+    if (response.status === 200) {
+      res.render('edit', { proverb, taskID: taskID })
+      console.log('Now you can start editing 🎉.')
+    } else {
+      throw new Error(`Failed to edit the proverb ;(`)
+    }
+  } catch (err) {
+    console.log(`Failed to edit the proverb in the frontend.`, err.message)
+    res.status(500).send('Failed to edit the proverb on frontend.')
+  }
+})
+
+app.post('/edit/:id', async (req, res) => {
+  try {
+    const taskID = req.params.id
+    const newProverb = {
+      textDari: req.body.textDari,
+      textPashto: req.body.textPashto,
+      translation: req.body.translation,
+      meaning: req.body.meaning,
+      category: req.body.category
+    }
+    const response = await axios.post(
+      `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`,
+      newProverb
+    )
+
+    if (response.status === 200) {
+      res.redirect('/proverbs')
+    } else {
+      res.status(500).send('Failed to update proverb.')
+    }
+  } catch (err) {
+    console.error('Update failed:', err.message)
+    res.status(500).send('Something went wrong.')
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port: ${PORT}`)
 })
