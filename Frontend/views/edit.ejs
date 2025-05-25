@@ -1,0 +1,41 @@
+<%- include('partials/header',{title: "Edit"}) %>
+<form method="POST" action="/edit/<%= taskID %>" class="form">
+
+
+  <label for="dari">Dari - دری‌</label>
+  <input
+    type="text"
+    name="textDari"
+    id=""
+    required
+    value="<%= proverb.textDari %>"
+  />
+  <label for="pashto">Pashto - پشتو</label>
+  <input
+    type="text"
+    name="textPashto"
+    id=""
+    value="<%= proverb.textPashto  %>"
+  />
+
+  <label for="en">English</label>
+  <input
+    type="text"
+    name="translation"
+    id=""
+    value="<%= proverb.translation  %>"
+  />
+
+  <label for="meaning">Meaning</label>
+  <input type="text" name="meaning" id="" value="<%= proverb.meaning %>" />
+  <label for="category">Category</label>
+  <select name="category" id="category">
+    <option value="wisdom" <%= proverb.category === 'wisdom' ? 'selected' : '' %>>Wisdom</option>
+    <option value="cooperation"<%= proverb.category === 'cooperation' ? 'selected' : '' %>>Cooperation</option>
+    <option value="patience" <%= proverb.category === 'patience' ? 'selected' : '' %>>Patience</option>
+    <option value="caution" <%= proverb.category === 'caution' ? 'selected' : '' %>>Caution</option>
+    <option value="humor" <%= proverb.category === 'humor' ? 'selected' : '' %>>Humor</option>
+  </select>
+
+  <button type="submit" >Update</button>
+</form>
