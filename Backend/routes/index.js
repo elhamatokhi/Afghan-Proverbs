@@ -70,10 +70,11 @@ router.get('/edit/:id', (req, res) => {
   const taskID = req.params.id
   let proverbs = loadProverbs()
   const proverb = proverbs.find(p => p.taskID === taskID)
+
   if (!proverb) {
     return res.status(404).json({ message: 'Proverb not found' })
   }
-  res.json(proverbs[taskID])
+  res.json(proverbs)
 })
 
 router.post('/edit/:id', (req, res) => {
