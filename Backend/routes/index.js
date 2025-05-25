@@ -30,12 +30,14 @@ router.post('/addProverb', (req, res) => {
   )
   let proverbs = JSON.parse(proverbsJSON)
 
+  const taskID = Date.now().toString()
   const newProverb = {
     textDari: req.body.textDari,
     textPashto: req.body.textPashto,
     translation: req.body.translation,
     meaning: req.body.meaning,
-    category: req.body.category
+    category: req.body.category,
+    taskID: taskID
   }
 
   proverbs.push(newProverb)

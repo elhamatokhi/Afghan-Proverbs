@@ -49,6 +49,7 @@ app.post('/addProverb', async (req, res) => {
       proverb
     )
 
+    console.log(response.data)
     if (response.status === 200) {
       res.render('index', { proverb: null })
       console.log('Proverb added successfully!!!!!!!!')
@@ -65,7 +66,6 @@ app.post('/addProverb', async (req, res) => {
 app.get('/edit/:id', async (req, res) => {
   try {
     const taskID = req.params.id
-    console.log(taskID)
     const response = await axios.get(
       `https://afghan-proverbs-1-2i9x.onrender.com/edit/${taskID}`
     )
@@ -101,6 +101,46 @@ app.post('/edit/:id', async (req, res) => {
 
     if (response.status === 200) {
       res.redirect('/proverbs')
+    } else {
+      res.status(500).send('Failed to update proverb.')
+    }
+  } catch (err) {
+    console.error('Update failed:', err.message)
+    res.status(500).send('Something went wrong.')
+  }
+})
+
+// Delete
+app.post('/proverbs/delete/:id', async (req, res) => {
+  try {
+    const taskID = req.params.id
+    console.log(taskID)
+
+    const response = await axios.post(
+      `https://afghan-proverbs-1-2i9x.onrender.com/proverbs/delete/${taskID}`
+    )
+
+    console.log(response.data)
+    if (response.status === 200) {
+      res.redirect('/proverbs')
+    } else {
+      res.status(500).send('Failed to update proverb.')
+    }
+  } catch (err) {
+    console.error('Update failed:', err.message)
+    res.status(500).send('Something went wrong.')
+  }
+})
+// Random Proverb
+
+app.get('/random', async (req, res) => {
+  try {
+    const response = await axios.get(
+      `https://afghan-proverbs-1-2i9x.onrender.com/random`
+    )
+    const proverb = response.data
+    if (response.status === 200) {
+      res.render('index', { proverb })
     } else {
       res.status(500).send('Failed to update proverb.')
     }

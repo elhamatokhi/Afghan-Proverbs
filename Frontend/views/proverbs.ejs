@@ -29,7 +29,7 @@
       <b>Category</b> <%= p.category %>
       <div>
       <a href="/edit/<%= p.taskID %>">Edit</a>
-      <form action="/proverbs/<%= index %>" method="post">
+      <form action="/proverbs/delete/<%= p.taskID %>" method="POST">
         <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
       </form>
       </div>
