@@ -74,7 +74,7 @@ router.get('/edit/:id', (req, res) => {
   if (!proverb) {
     return res.status(404).json({ message: 'Proverb not found' })
   }
-  res.json(proverbs)
+  res.json(proverb)
 })
 
 router.post('/edit/:id', (req, res) => {
@@ -82,6 +82,7 @@ router.post('/edit/:id', (req, res) => {
   const taskID = req.params.id
   console.log('From Backend', req.body)
   const index = proverbs.findIndex(p => p.taskID === taskID)
+  console.log(index)
   if (index === -1) {
     return res.status(404).json({ message: 'Proverb not found.' })
   }
