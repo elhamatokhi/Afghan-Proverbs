@@ -7,7 +7,7 @@ Afghan Proverbs is a RESTful API designed to store and manage traditional Afghan
 ## Features
 
 - Get a random Afghan proverb
-- Add, update, and delete proverbs (if implemented)
+- Add, update, and delete proverbs
 - Simple REST API built with Express
 - Hosted live on Render
 
