@@ -13,6 +13,10 @@ import {
 } from '../Controllers/proverbControllers.js'
 const router = Router()
 
+router.get('/', (req, res) => {
+  res.render('index', { proverb: null })
+})
+
 // Add support for multiple categories
 router.get('/proverbs', (req, res) => {
   let proverbs = loadProverbs()
