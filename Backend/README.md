@@ -2,18 +2,16 @@
 
 Afghan Proverbs is a RESTful API designed to store and manage traditional Afghan proverbs and sayings in Dari, Pashto, and their English translations. The project demonstrates the use of structured JSON data and provides meaningful API responses through well-designed CRUD operations. It serves as a cultural preservation tool while offering hands-on experience with Express.js and RESTful API development.
 
-![screenshot](./public/images/proverb.png)
-
 ## Features
 
 - Get a random Afghan proverb
-- Add, update, and delete proverbs (if implemented)
+- Add, update, and delete proverbs
 - Simple REST API built with Express
 - Hosted live on Render
 
 ## Live Demo
 
-👉[Try it here](https://afghan-proverbs-562o.onrender.com)
+👉[Try it here]()
 
 ---
 
